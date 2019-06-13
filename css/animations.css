@@ -37,10 +37,36 @@
   @keyframes moveWater {
     0% {
       height: 98%;
+      opacity: 1;
     }
 
     100% {
-      height: 50%;
+      height: 0;
+      opacity: 0;
       clip-path: none;
+    }
+  }
+
+
+  @keyframes changeBG {
+    0% {
+      background-color: rgba(36, 190, 255, 0.5);
+    }
+
+
+    100% {
+    background-color: rgba(23, 116, 255, 1.0);;
+
+    }
+  }
+
+
+  @keyframes questionsTransition {
+    0% {
+      transform: translateX(200%);
+    }
+
+    100% {
+      transform: translateX(0);
     }
   }
