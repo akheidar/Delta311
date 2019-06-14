@@ -113,3 +113,7 @@
 .report-btn:focus {
   outline: none;
 }
+
+.report-btn:active {
+  color: var(--actionBlue);
+}
