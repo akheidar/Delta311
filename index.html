@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="./devices.css/assets/devices.min.css">
     <!--custom styles below-->
     <link rel="stylesheet" href="./css/general.css">
-    <link rel="stylesheet" href="/css/homescreen.css">
-    <link rel="stylesheet" href="/css/questions.css">
+    <link rel="stylesheet" href="./css/homescreen.css">
+    <link rel="stylesheet" href="./css/questions.css">
+    <link rel="stylesheet" href="./css/review.css">
     <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/animations-vendor.css">
   </head>
 
   <body class = "mobileBG">
@@ -34,7 +36,7 @@
     <div class="inner-shadow"></div>
     <div class="screen bg bgOverlay">
       <div class="mainframe">
-
+          <div class = "progress-bar"></div>
         <!--homescreen-->
         <div class = "container-welcome">
            <div class = "header">
@@ -53,12 +55,53 @@
         <!--questions-->
         <div class="container-questions">
           <h3 class = "micro-copy">Tell us what happened</h3>
-          <div class="question">
-            <p>1.) What species of weed is it?</p>
-            <input type="text" name="weed-species" placeholder = "e.g. Hydrilla Verticillata" class = "user-input">
-            <button class = "next-btn">Next</button>
+          <div class = "questions">
+
+            <div class="question q1">
+              <p>1.) What species of weed is it?</p>
+              <input type="text" name="weed-species" placeholder = "e.g. Hydrilla Verticillata" class = "user-input">
+              <button class = "next-btn">Next</button>
+            </div>
+  
+            <div class="question q2">
+              <p>2.) What water body is it located in?</p>
+              <input type="text" name="weed-species" placeholder = "e.g. Shasta Lake" class = "user-input">
+              <button class = "next-btn">Next</button>
+            </div>
+
+            <div class="question q3">
+                <p>3.) Where in the water column did you find it?</p>
+                <input type="text" name="weed-species" placeholder = "e.g. Mesopelagic" class = "user-input">
+                <button class = "next-btn">Next</button>
+              </div>
+
           </div>
+          
         </div>
+
+        <!--Review-->
+        <div class="container-review">
+            <h3 class = "micro-copy">let's review.</h3>
+            <div class = "questions">
+  
+              <div class="question q1">
+                <p>1.) What species of weed is it?</p>
+                <p class = "q1Answer">Hydrilla Verticillata</p>
+              </div>
+    
+              <div class="question q2">
+                <p>2.) What water body is it located in?</p>
+                <p class = "q1Answer">Shasta Lake</p>
+              </div>
+  
+              <div class="question q3">
+                  <p>3.) Where in the water column did you find it?</p>
+                  <p class = "q1Answer">Mesopelagic</p>
+                </div>
+  
+            </div>
+            
+          </div>
       </div>
 
     </div>
