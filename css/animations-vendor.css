@@ -75,8 +75,51 @@
     0% {
       transform: translateX(0);
     }
-  
+
     100% {
       transform: translateX(-200%);
+    }
+  }
+
+
+  @-webkit-keyframes progressAppear {
+    0% {
+      width: 0%;
+    }
+
+    100% {
+      width: 25%;
+    }
+  }
+
+  @-webkit-keyframes progressInc1 {
+    0% {
+      width: 25%;
+    }
+
+    100% {
+      width: 50%;
+    }
+  }
+
+  @-webkit-keyframes progressInc2 {
+    0% {
+      width: 50%;
+    }
+
+    100% {
+      width: 75%;
+    }
+  }
+
+  @-webkit-keyframes progressInc3 {
+    0% {
+      width: 75%;
+      background-color: #ffffff;
+    }
+
+    100% {
+      width: 100%;
+      background-color: var(--actionBlue);
     }
   }
