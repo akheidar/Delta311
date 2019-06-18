@@ -3,13 +3,12 @@ var bg = document.querySelector(".mainframe");
 var reportBtn = document.querySelector(".report-btn");
 var header = document.querySelector(".header");
 var questions = document.querySelector(".container-questions");
-//grabber for progressBar
 var progressBar = document.querySelector(".progress-bar");
 
-//content for the login screen
+//content for the welcome screen
 var welcomeScreen = [header];
 
-//Stuff to do when user clicks the login button
+//Stuff to do when user clicks the New Report button
 reportBtn.addEventListener('click', function() {
   (function() {
     //apply the screenTransition keyframe animation to each element in the login screen
