@@ -1,7 +1,7 @@
 .container-questions {
   margin: 3% 5%;
   position: absolute;
-  top: 5%;
+  top: 3%;
   transform: translateX(200%);
   color: #ffffff;
 }
