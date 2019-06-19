@@ -1,12 +1,41 @@
 //JS code for managing user interactions for prototype
+//Content grabbers
 var bg = document.querySelector(".mainframe");
 var reportBtn = document.querySelector(".report-btn");
 var header = document.querySelector(".header");
+var welcomeScreen = [header];
 var questions = document.querySelector(".container-questions");
 var progressBar = document.querySelector(".progress-bar");
+var review = document.querySelector(".container-review");
 
-//content for the welcome screen
-var welcomeScreen = [header];
+//functions
+//content grabber for question q
+var question = function(q) {
+  return document.querySelector(".container-questions .questions " + q);
+}
+
+//next button for the question q
+var nextQ = function(q) {
+  return document.querySelector(".container-questions .questions " + q + " .next-btn");
+}
+
+//function which manages the transition between two questions
+function qTransition(q_before, q_after) {
+  q_before.style.animation = "questionsTransitionOut 0.5s ease-in forwards"
+  setTimeout(function() {q_before.style.display = "none";}, 800);
+  q_after.style.animation = "questionsTransitionIn 0.5s 1.0s forwards";
+  q_after.style.display = "block";
+}
+
+//function which manages the growth of the progress bar
+function progressTransition(stage) {
+  if(stage === 0) {
+    progressBar.style.animation = "progressAppear 0.5s forwards";
+  } else {
+    progressBar.style.animation = "progressInc" + stage + " 0.5s forwards";
+  }
+}
+
 
 //Stuff to do when user clicks the New Report button
 reportBtn.addEventListener('click', function() {
@@ -32,60 +61,35 @@ reportBtn.addEventListener('click', function() {
   }, 200);
 });
 
+//code for going from question 1 to question 2
+nextQ(".q1").addEventListener("click", function() {
+  qTransition(question(".q1"), question(".q2"));
+  progressTransition(1);
+});
+
+//code for going from question 2 to question 3
+nextQ(".q2").addEventListener("click", function() {
+  qTransition(question(".q2"), question(".q3"));
+  progressTransition(2);
+});
+
+//code for going from completed questions to form submission review
+nextQ(".q3").addEventListener("click", function() {
+  var micro = document.querySelector(".container-questions .micro-copy");
+  micro.style.animation = "questionsTransitionOut 0.3s ease-out forwards";
+  bg.style.animation = "changeBG2 0.5s 0.2s forwards";
+  question(".q3").style.animation = "questionsTransitionOut 0.5s ease-in forwards";
+  progressTransition(3);
+  setTimeout(function() {
+    review.style.display = "block";
+  }, 500);
+});
+
+
 //Get the refresh button
 var refresh = document.querySelector(".refresh-btn");
 
 //Reload the prototype when user clicks the reload button
 refresh.addEventListener('click', function() {
   location.reload(true);
-});
-
-//content grabbers for questions
-var q1 = document.querySelector(".container-questions .questions .q1");
-var q2 = document.querySelector(".container-questions .questions .q2");
-var q3 = document.querySelector(".container-questions .questions .q3");
-var nextQ1 = document.querySelector(".container-questions .questions .q1 .next-btn");
-var nextQ2 = document.querySelector(".container-questions .questions .q2 .next-btn");
-var nextQ3 = document.querySelector(".container-questions .questions .q3 .next-btn");
-
-//function which manages the transition between two questions
-function qTransition(q_before, q_after) {
-  q_before.style.animation = "questionsTransitionOut 0.5s ease-in forwards"
-  setTimeout(function() {q_before.style.display = "none";}, 800);
-  q_after.style.animation = "questionsTransitionIn 0.5s 1.0s forwards";
-  q_after.style.display = "block";
-}
-
-//function which manages the growth of the progress bar
-function progressTransition(stage) {
-  if(stage === 0) {
-    progressBar.style.animation = "progressAppear 0.5s forwards";
-  } else {
-    progressBar.style.animation = "progressInc" + stage + " 0.5s forwards";
-  }
-}
-
-var review = document.querySelector(".container-review");
-
-//code for going from question 1 to question 2
-nextQ1.addEventListener("click", function() {
-  qTransition(q1, q2);
-  progressTransition(1);
-});
-
-
-//code for going from question 2 to question 3
-nextQ2.addEventListener("click", function() {
-  qTransition(q2, q3);
-  progressTransition(2);
-});
-
-//code for going from completed questions to form submission review
-nextQ3.addEventListener("click", function() {
-  var micro = document.querySelector(".container-questions .micro-copy");
-  micro.style.animation = "questionsTransitionOut 0.3s ease-out forwards";
-  console.log(bg.style.backgroundColor);
-  bg.style.animation = "changeBG2 0.5s 0.2s forwards";
-  q3.style.animation = "questionsTransitionOut 0.5s ease-in forwards";
-  progressTransition(3);
 });
